@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --primary: #dc143c;
+    --primary-hover: #c41236;
+    --bg: #eee;
+    --bg-2: #ddd;
+}
+
+::selection {
+    background-color: var(--primary);
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    background-color: var(--primary);
+}
+
+.main {
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    background-color: var(--bg);
+    width: 80%;
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
+
+form :where(input, textarea, select) {
+    resize: none;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--bg-2);
+    border: 0;
+    border-radius: 0.25rem;
+}
+
+form :where(input, textarea, button, select):focus {
+    outline: 0;
+}
+
+form button {
+    background-color: var(--primary);
+    color: white;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
+    border: 0;
+}
+
+form button:hover:not(:disabled), form button:focus:not(:disabled) {
+    background-color: var(--primary-hover);
+}
+
+form button:disabled {
+    background-color: var(--bg-2);
+    color: black
+}
+
+
+h1 {
+    text-align: center;
+}
