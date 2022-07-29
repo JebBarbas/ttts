@@ -1,11 +1,16 @@
 // @ts-check
 
+const VERSION = 'v1.1.0'
+
 const $ = selector => document.querySelector(selector)
 
 const form = $('form')
 const txt = $('textarea')
 const btn = $('button')
 const select = $('select')
+const main = $('#main')
+const loader = $('#loader')
+const version = $('#version')
 
 const speaker = window.speechSynthesis
 
@@ -15,6 +20,21 @@ const speaker = window.speechSynthesis
  */
 function handleError(error){
     console.log(error)
+}
+
+/**
+ * Sets the page to start to load or to end loading
+ * @param {boolean} loading 
+ */
+function setLoading(loading){
+    if(loading){
+        main && main.classList.add('invisible')
+        loader && loader.classList.remove('invisible')
+    }
+    else{
+        main && main.classList.remove('invisible')
+        loader && loader.classList.add('invisible')
+    }
 }
 
 /**
@@ -66,7 +86,7 @@ function speak(text, voiceIndex){
 function setDisabledButton(disabled){
     if(disabled){
         if(btn) btn.disabled = true
-        if(btn) btn.innerText = 'Sonando...'
+        if(btn) btn.innerText = 'Hablando...'
     }
     else{
         if(btn) btn.disabled = false
@@ -82,12 +102,18 @@ form && form.addEventListener('submit', e => {
     }
 })   
 
-speaker && speaker.addEventListener('voiceschanged', () => {
+speaker && speaker.addEventListener('voiceschanged', () => {    
     try{
+        setLoading(true)
         const internalVoices = speaker.getVoices()    
         addVoicesToSelect(internalVoices)
     }
     catch{
         handleError('There is a big error with the speaker, maybe it dont exists.')
     }
+    finally{
+        setLoading(false)
+    }
 })
+
+version ? version.innerText = `JebBarbas's Testing Text To Speech: ${VERSION}` : null

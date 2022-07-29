@@ -1,10 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 :root {
     --primary: #dc143c;
     --primary-hover: #c41236;
+    --secondary: #663399;
     --bg: #eee;
     --bg-2: #ddd;
+
+    --margin: 0.5rem;
+    --border-radius: 0.25rem;
 }
 
 ::selection {
@@ -19,37 +32,35 @@
     box-sizing: border-box;
 }
 
-img {
-    max-width: 100%;
-}
-
 body {
     background-color: var(--primary);
 }
 
-.main {
-    min-height: 100vh;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+h1 {
+    text-align: center;
+}
+
+h1, h3 {
+    margin-bottom: var(--margin);
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 
     background-color: var(--bg);
-    width: 80%;
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius);
     padding: 1rem;
+}
+
+form div {
+    margin-bottom: var(--margin);
 }
 
 form :where(input, textarea, select) {
     resize: none;
     width: 100%;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 1rem;
     background-color: var(--bg-2);
     border: 0;
     border-radius: 0.25rem;
@@ -64,7 +75,7 @@ form button {
     color: white;
     width: 100%;
     padding: 1rem 2rem;
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius);
     border: 0;
 }
 
@@ -77,7 +88,33 @@ form button:disabled {
     color: black
 }
 
+.container {
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-h1 {
+.invisible {
+    display: none;
+}
+
+.loader-loader {
+    width: 4rem;
+    height: 4rem;
+    border: 0.5rem var(--bg-2) solid;
+    border-top-color: var(--secondary);
+    border-bottom-color: var(--secondary);
+    border-radius: 100%;
+    animation: spin 2s infinite;
+}
+
+#main {
+    width: 100%;
+    padding: 1rem;
+}
+
+#version {
     text-align: center;
 }

@@ -9,22 +9,31 @@
     <title>Text To Speech | @jebbarbas</title>
 </head>
 <body>
-    <div class="main">
-        <form>
-            <h1>Text To Speech</h1>
+    <div class="container">
+        <div id="main" class="invisible">
+            <form>
+                <h1>Text To Speech</h1>
 
-            <div>
-                <h3>Texto</h3>
-                <textarea placeholder="Escribe aqui el texto a decir"></textarea>
-            </div>
+                <div>
+                    <h3>Texto</h3>
+                    <textarea placeholder="Escribe aqui el texto a decir"></textarea>
+                </div>
 
-            <div>
-                <h3>Voces</h3>
-                <select></select>
-            </div>
+                <div>
+                    <h3>Voces</h3>
+                    <select></select>
+                </div>
 
-            <button>Hablar</button>
-        </form>
+                <div>
+                    <button>Hablar</button>
+                </div>
+
+                <span id="version"></span>
+            </form>
+        </div>
+        <div id="loader">
+            <div class="loader-loader"></div>
+        </div>
     </div>
     <script src="./public/js/main.js"></script>
 </body>
