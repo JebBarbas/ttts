@@ -90,10 +90,11 @@ form button:disabled {
 
 .container {
     min-height: 100vh;
-    flex-direction: column;
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .invisible {
@@ -117,4 +118,26 @@ form button:disabled {
 
 #version {
     text-align: center;
+}
+
+.modal:not(.invisible) {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0,0,0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--primary);
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 5rem 10rem;
 }
